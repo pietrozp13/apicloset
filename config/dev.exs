@@ -52,7 +52,7 @@ config :phoenix, :stacktrace_depth, 20
 config :apicloset, Apicloset.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
-  database: "apicloset_dev",
+  password: "123456",
+  database: "teste_dev",
   hostname: "localhost",
   pool_size: 10

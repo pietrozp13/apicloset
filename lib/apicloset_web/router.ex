@@ -15,12 +15,15 @@ defmodule ApiclosetWeb.Router do
 
   scope "/", ApiclosetWeb do
     pipe_through :browser # Use the default browser stack
-
+    resources "/users", UserController, except: [:new, :edit]
+    resources "/posts", PostController, except: [:new, :edit]
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ApiclosetWeb do
-  #   pipe_through :api
-  # end
+  forward "/api", Absinthe.Plug,
+    schema: ApiclosetWeb.Schema
+
+  forward "/graphiql", Absinthe.Plug.GraphiQL,
+    schema: ApiclosetWeb.Schema
+
 end
