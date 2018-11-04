@@ -7,7 +7,6 @@ defmodule Apicloset.Accounts.User do
   schema "users" do
     field :email, :string
     field :name, :string
-    has_many :posts, Graphical.Accounts.Posts.Post
 
     timestamps()
   end

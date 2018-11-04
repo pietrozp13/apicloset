@@ -30,5 +30,11 @@ defmodule ApiclosetWeb.Schema do
 
       resolve &Apicloset.PostResolver.create/2
     end
+
+    field :create_user, type: :user do
+      arg :name, non_null(:string)
+      arg :email, non_null(:string)
+      resolve &Apicloset.UserResolver.create/2
+    end
   end
 end
